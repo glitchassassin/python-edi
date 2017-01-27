@@ -1,0 +1,132 @@
+[
+    {
+        "type": "segment",
+        "id": "ST",
+        "name": "Transaction Set Header",
+        "req": "M",
+        "max_uses": 1,
+        "repeat": null,
+        "notes": "",
+        "elements": [
+            {
+                "type": "element",
+                "id": "143",
+                "name": "Transaction Set Identifier Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {"810": "Invoice"},
+                "length": {"min": 3, "max": 3},
+                "notes": ""
+            },
+            {
+                "type": "element",
+                "id": "329",
+                "name": "Transaction Set Control Number",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {"min": 4, "max": 9},
+                "notes": "This should be a unique control # for each transaction set functional group"
+            }
+        ]
+    },
+    {
+        "type": "segment",
+        "id": "BIG",
+        "name": "Beginning Segment for Invoice",
+        "req": "M",
+        "max_uses": 1,
+        "repeat": null,
+        "notes": "",
+        "elements": [
+            {
+                "type": "element",
+                "id": "373",
+                "name": "Invoice Date",
+                "req": "M",
+                "data_type": "DT",
+                "data_type_ids": null,
+                "length": {"min": 8, "max": 8},
+                "notes": "Invoice issue date"
+            },
+            {
+                "type": "element",
+                "id": "76",
+                "name": "Invoice Number",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 22},
+                "notes": "Identifying number assigned by supplier"
+            },
+            {
+                "type": "element",
+                "id": "373",
+                "name": "Purchase Order Date",
+                "req": "O",
+                "data_type": "DT",
+                "data_type_ids": null,
+                "length": {"min": 8, "max": 8},
+                "notes": "Original date (assigned by hospital) of the purchase order"
+            },
+            {
+                "type": "element",
+                "id": "324",
+                "name": "Purchase Order Number",
+                "req": "O",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 22},
+                "notes": "Identifying number for purchase order assigned by hospital"
+            },
+            {
+                "type": "element",
+                "id": null,
+                "name": "Release Number",
+                "req": "O",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 30},
+                "notes": "Only used if hospital sent the release # in original PO (element BEG04)"
+            },
+            {
+                "type": "element",
+                "id": null,
+                "name": "Change Order Seq. #",
+                "req": "O",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 8},
+                "notes": "Not used"
+            },
+            {
+                "type": "element",
+                "id": "640",
+                "name": "Transaction Type Code",
+                "req": "O",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "CN": "Credit Invoice",
+                    "CR": "Credit Memo",
+                    "DI": "Debit Invoice",
+                    "DR": "Debit Memo",
+                    "PR": "Product (or Service)"
+                },
+                "length": {"min": 1, "max": 22},
+                "notes": "Identifying number for purchase order assigned by hospital"
+            },
+            {
+                "type": "element",
+                "id": "640",
+                "name": "Transaction Set Purpose Code",
+                "req": "O",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "00": "Original"
+                },
+                "length": {"min": 2, "max": 2},
+                "notes": "Not used"
+            }
+        ]
+    }
+]

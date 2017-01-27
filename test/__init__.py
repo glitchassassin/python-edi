@@ -1,0 +1,3 @@
+"""
+Make tests a package
+"""
