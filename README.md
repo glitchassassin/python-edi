@@ -17,6 +17,7 @@ Each segment has certain expected properties:
 * `req` (Whether segment is required: [M]andatory, [O]ptional)
 * `max_uses` (Some segments can be included more than once)
 * `notes` (Optional details for hinting documentation)
+* `syntax` (An optional list of syntax rules, defined below)
 * `elements` (List of included elements)
 
 Each element has certain expected features: 
@@ -33,7 +34,14 @@ Each element has certain expected features:
 Valid data types include:
 
 * `AN` (Any data type)
-* `DT` (Date, as YYYYMMDD)
+* `DT` (Date, must be provided as Python DATE or DATETIME object)
 * `ID` (Alphanumeric ID. List of valid IDs provided as dict with descriptions)
 * `R`  (Percentage)
 * `Nx` (Number with `x` decimal points)
+* `TM` (Time, must be provided as Python TIME or DATETIME object)
+
+Syntax rules are specified as a dict with a `rule` and a list of `criteria`. Valid syntax rules include:
+
+* `ATLEASTONE` (where at least one of the element IDs in the `criteria` list is included and is not empty)
+* `ALLORNONE` (where either all of the element IDs in the `criteria` list are included, or none are)
+* `IFATLEASTONE` (if the first element in `criteria` is included, then at least one of the other elements must be included)
