@@ -1,6 +1,10 @@
 # python-edi
 EDI message generator in Python. Creates &amp; validates messages according to specific formats
 
+## TODOs
+
+* Finish 810 definition
+* Implement colorful exceptions
 
 ## EDI Format Definitions
 EDI messages consist of a set of Segments (usually lines) comprised of Elements. Some segments can be part of a Loop. These formats are defined in JSON. See the provided format(s) for examples.

@@ -9,4 +9,3 @@ Provides hints if the validation fails.
 import os
 
 from .EDIGenerator import EDIGenerator, Debug, supported_formats
-from .hint import explain

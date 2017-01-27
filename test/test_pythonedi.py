@@ -66,7 +66,7 @@ class TestGenerate810(unittest.TestCase):
         }
 
         message = self.g.build(edi_data)
-        print(message)
+        print("\n\n" + message)
 
     def test_error_handling(self):
         invoice_number = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(22))
@@ -108,7 +108,10 @@ class TestGenerate810(unittest.TestCase):
                 "AP"
             ]
         }
+        old_level = pythonedi.Debug.level
+        pythonedi.Debug.level = 0 # Turn off explaining for intentional exceptions
 
         with self.assertRaises(ValueError):
-            self.g.debug_level = 0 # Turn off explaining for intentional exceptions
             message = self.g.build(edi_data)
+
+        pythonedi.Debug.level = old_level

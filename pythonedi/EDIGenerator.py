@@ -3,8 +3,6 @@ Parses a provided dictionary set and tries to build an EDI message from the data
 Provides hints if data is missing, incomplete, or incorrect.
 """
 
-import os
-from .hint import explain
 from .supported_formats import supported_formats
 from .debug import Debug
 
@@ -14,7 +12,6 @@ class EDIGenerator(object):
         self.element_delimiter = "^"
         self.segment_delimiter = "\n"
         self.data_delimiter = "`"
-        self.debug_level = 2 # 0 = Silent, 1 = Warnings, 2 = Explain
 
     def build(self, data):
         """
@@ -23,8 +20,7 @@ class EDIGenerator(object):
         # Check for transaction set ID in data
 
         if "ST" not in data:
-            if self.debug_level > 1:
-                explain(supported_formats["ST"])
+            Debug.explain(supported_formats["ST"])
             raise ValueError("No transaction set header found in data.")
         ts_id = data["ST"][0]
         if ts_id not in supported_formats:
@@ -44,8 +40,7 @@ class EDIGenerator(object):
                     continue
                 elif segment["req"] == "M":
                     # Mandatory segment is missing - explain it and then fail
-                    if self.debug_level > 1:
-                        explain(segment)
+                    Debug.explain(segment)
                     raise ValueError("EDI data is missing mandatory segment '{}'.".format(segment["id"]))
                 else:
                     raise ValueError("Unknown 'req' value '{}' when processing format for segment '{}' in set '{}'".format(segment["req"], segment["id"], ts_id))
@@ -81,15 +76,13 @@ class EDIGenerator(object):
                     elif e_format["data_type"] == "R":
                         formatted_element = "{:.2f}".format(e_data)
                     elif e_format["data_type"].startswith("N"):
-                        formatted_element = "{:.{decimal}f}".format(float(e_data), decimal=e_format["data_type"][1:])
+                        formatted_element = "{:0{length}.{decimal}f}".format(float(e_data), length=e_format["length"]["max"], decimal=e_format["data_type"][1:])
                     elif e_format["data_type"] == "ID":
                         formatted_element = str(e_data)
                         if not e_format["data_type_ids"]:
-                            if self.debug_level > 0:
-                                Debug.log_warning("No valid IDs provided for element '{}'. Allowing anyway.".format(e_format["name"]))
+                            Debug.log_warning("No valid IDs provided for element '{}'. Allowing anyway.".format(e_format["name"]))
                         elif e_data not in e_format["data_type_ids"]:
-                            if self.debug_level > 0:
-                                Debug.log_warning("ID '{}' not recognized for element '{}'. Allowing anyway.".format(e_data, e_format["name"]))
+                            Debug.log_warning("ID '{}' not recognized for element '{}'. Allowing anyway.".format(e_data, e_format["name"]))
                     elif e_format["data_type"] == "":
                         if element_id == "ISA16":
                             # Component Element Separator
@@ -124,8 +117,7 @@ class EDIGenerator(object):
                         if found is False:
                             # None of the elements were found
                             required_elements = ", ".join(["{}{:02d}".format(segment["id"], e) for e in rule["criteria"]])
-                            if self.debug_level > 1:
-                                explain(segment)
+                            Debug.explain(segment)
                             raise ValueError("Syntax error parsing segment {}: At least one of {} is required.".format(segment["id"], required_elements))
                     elif rule["rule"] == "ALLORNONE":
                         found = 0
@@ -137,8 +129,7 @@ class EDIGenerator(object):
                         if 0 < found < len(rule["criteria"]):
                             # Some but not all the elements are present
                             required_elements = ", ".join(["{}{:02d}".format(segment["id"], e) for e in rule["criteria"]])
-                            if self.debug_level > 1:
-                                explain(segment)
+                            Debug.explain(segment)
                             raise ValueError("Syntax error parsing segment {}: If one of {} is present, all are required.".format(segment["id"], required_elements))
                     elif rule["rule"] == "IFATLEASTONE":
                         found = 0
@@ -153,8 +144,7 @@ class EDIGenerator(object):
                                 # Some but not all the elements are present
                                 first_element = "{}{:02d}".format(segment["id"], rule["criteria"][0])
                                 required_elements = ", ".join(["{}{:02d}".format(segment["id"], e) for e in rule["criteria"][0]])
-                                if self.debug_level > 1:
-                                    explain(segment)
+                                Debug.explain(segment)
                                 raise ValueError("Syntax error parsing segment {}: If {} is present, at least one of {} are required.".format(segment["id"], first_element, required_elements))
 
             output_segments.append(self.element_delimiter.join(output_elements))
