@@ -74,7 +74,7 @@ class EDIGenerator(object):
                         else:
                             raise ValueError("Invalid length ({}) for time field in element '{}' in set '{}'".format(e_format["length"], element_id, ts_id))
                     elif e_format["data_type"] == "R":
-                        formatted_element = "{:.2f}".format(e_data)
+                        formatted_element = str(float(e_data))
                     elif e_format["data_type"].startswith("N"):
                         formatted_element = "{:0{length}.{decimal}f}".format(float(e_data), length=e_format["length"]["max"], decimal=e_format["data_type"][1:])
                     elif e_format["data_type"] == "ID":

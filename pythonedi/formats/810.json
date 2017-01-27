@@ -407,6 +407,44 @@
             }
         ]
     },
+    {   "id": "CUR", "type": "segment",
+        "name": "Currency",
+        "req": "O",
+        "max_uses": 1,
+        "notes": "If the CUR segment is not used, monetary values are assumed to be expressed in the currency of the country of the transaction originator.",
+        "elements": [
+            {
+                "type": "element",
+                "id": "98",
+                "name": "Entity Identifier Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {"SE": "Selling Party"},
+                "length": {"min": 2, "max": 3},
+                "notes": "Code identifying an organizational entity, a physical location, property or an individual"
+            },
+            {
+                "type": "element",
+                "id": "100",
+                "name": "Currency Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {"USD": "US Dollars", "CAD": "Canadian Dollars"},
+                "length": {"min": 3, "max": 3},
+                "notes": "Code (Standard ISO) for country in whose currency the charges are specified"
+            },
+            {
+                "type": "element",
+                "id": "280",
+                "name": "Exchange Rate",
+                "req": "O",
+                "data_type": "R",
+                "data_type_ids": null,
+                "length": {"min": 4, "max": 10},
+                "notes": "Value to be used as a multiplier conversion factor to convert monetary value from one currency to another"
+            }
+        ]
+    },
     {   "id": "REF", "type": "segment",
         "name": "Reference Identification",
         "req": "O",
@@ -457,6 +495,55 @@
                 "data_type_ids": null,
                 "length": {"min": 1, "max": 30},
                 "notes": "A free-form description to clarify the related data elements and their content"
+            }
+        ]
+    },
+    {   "id": "N1", "type": "segment",
+        "name": "Name",
+        "req": "O",
+        "max_uses": 1,
+        "notes": "To identify a party by type of organization, name, and code",
+        "elements": [
+            {
+                "type": "element",
+                "id": "98",
+                "name": "Entity Identifier Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "BT": "Bill-to-Party", 
+                    "BY": "Buying Party (Purchaser)", 
+                    "CA": "Carrier", 
+                    "DU": "Reseller", 
+                    "EN": "End User", 
+                    "II": "Issuer of Invoice", 
+                    "PR": "Payer", 
+                    "SE": "Selling Party", 
+                    "SO": "Sold To If Different From Bill To", 
+                    "ST": "Ship To"
+                },
+                "length": {"min": 2, "max": 3},
+                "notes": "Code identifying an organizational entity, a physical location, property or an individual"
+            },
+            {
+                "type": "element",
+                "id": "93",
+                "name": "Name",
+                "req": "O",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 60},
+                "notes": "Free-form name"
+            },
+            {
+                "type": "element",
+                "id": "66",
+                "name": "Identification Code Qualifier",
+                "req": "O",
+                "data_type": "ID",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 2},
+                "notes": "Code designating the system/method of code structure used for Identification Code (67)"
             }
         ]
     }
