@@ -7,21 +7,27 @@ Handles logging at different debug levels
 from colorama import Fore, Style, init
 init()
 
+LOOP_TEMPLATE = """
+{tab_level}{HEADER_COLOR}[{id}] {name}{END_COLOR}
+{tab_level} * Required? {VALUE_COLOR}{req}{END_COLOR}
+{tab_level} * Max repeat: {VALUE_COLOR}{repeat}{END_COLOR}
+"""
+
 SEGMENT_TEMPLATE = """
-{HEADER_COLOR}[{id}] {name}{END_COLOR}
- * Required? {VALUE_COLOR}{req}{END_COLOR}
- * Max uses: {VALUE_COLOR}{max_uses}{END_COLOR}
- * Syntax rules: {VALUE_COLOR}{syntax_rules}{END_COLOR}
- * Notes: {VALUE_COLOR}{notes}{END_COLOR}
+{tab_level}{HEADER_COLOR}[{id}] {name}{END_COLOR}
+{tab_level} * Required? {VALUE_COLOR}{req}{END_COLOR}
+{tab_level} * Max uses: {VALUE_COLOR}{max_uses}{END_COLOR}
+{tab_level} * Syntax rules: {VALUE_COLOR}{syntax_rules}{END_COLOR}
+{tab_level} * Notes: {VALUE_COLOR}{notes}{END_COLOR}
 """
 
 ELEMENT_TEMPLATE = """
-    {HEADER_COLOR}{index}{name}{END_COLOR}
-      * Required? {VALUE_COLOR}{req}{END_COLOR}
-      * Data type: {VALUE_COLOR}{data_type}{END_COLOR}
-      * Data type options: {VALUE_COLOR}{data_type_ids}{END_COLOR}
-      * Length (min: {VALUE_COLOR}{length[min]}{END_COLOR}, max: {VALUE_COLOR}{length[max]}{END_COLOR})
-      * Notes: {VALUE_COLOR}{notes}{END_COLOR}
+{tab_level}{HEADER_COLOR}{index}{name}{END_COLOR}
+{tab_level} * Required? {VALUE_COLOR}{req}{END_COLOR}
+{tab_level} * Data type: {VALUE_COLOR}{data_type}{END_COLOR}
+{tab_level} * Data type options: {VALUE_COLOR}{data_type_ids}{END_COLOR}
+{tab_level} * Length (min: {VALUE_COLOR}{length[min]}{END_COLOR}, max: {VALUE_COLOR}{length[max]}{END_COLOR})
+{tab_level} * Notes: {VALUE_COLOR}{notes}{END_COLOR}
 """
 
 class DebugMaster(object):
@@ -69,10 +75,10 @@ class DebugMaster(object):
         else:
             raise TypeError("Expected either a loop, a segment, an element, or a list of segments.")
 
-    def explain_segment(self, segment):
+    def explain_segment(self, segment, tab_level = ""):
         if self.level <= 1:
             return # Only explain if debugging level is 2+
-        print(Fore.CYAN + "\n-- [Segment] --" + Fore.RESET)
+        print(Fore.CYAN + "\n" + tab_level + "-- [Segment] --" + Fore.RESET)
         if segment["type"] == "segment":
             # Parse syntax rules into human-readable format
             syntax_rules_list = []
@@ -97,6 +103,7 @@ class DebugMaster(object):
 
             # Print template
             print(SEGMENT_TEMPLATE.format(
+                tab_level=tab_level,
                 syntax_rules="; ".join(syntax_rules_list),
                 HEADER_COLOR=Fore.CYAN+Style.BRIGHT,
                 VALUE_COLOR=Fore.YELLOW+Style.BRIGHT,
@@ -104,27 +111,39 @@ class DebugMaster(object):
                 **segment))
 
             # Print elements section
-            print(Fore.CYAN + "    -- [Elements] --" + Fore.RESET)
+            print(Fore.CYAN + tab_level + "    -- [Elements] --" + Fore.RESET)
             for i, element in enumerate(segment["elements"]):
-                self.explain_element("{}{:02d}: ".format(segment["id"], i+1), element)
+                self.explain_element("{}{:02d}: ".format(segment["id"], i+1), element, tab_level + "    ")
         
         # End segment
-        print(Fore.CYAN + "--------------------" + Fore.RESET)
+        print(Fore.CYAN + tab_level + "--------------------" + Fore.RESET)
 
-    def explain_element(self, index, element):
+    def explain_element(self, index, element, tab_level = ""):
         if self.level <= 1:
             return # Only explain if debugging level is 2+
         # Print template
         print(ELEMENT_TEMPLATE.format(
+            tab_level=tab_level,
             index=index,
             HEADER_COLOR=Fore.GREEN,
             VALUE_COLOR=Fore.YELLOW+Style.BRIGHT,
             END_COLOR=Fore.RESET+Style.RESET_ALL,
             **element))
 
-    def explain_loop(self, loop):
+    def explain_loop(self, loop, tab_level=""):
         if self.level <= 1:
             return # Only explain if debugging level is 2+
-        raise NotImplementedError()
+        print(Fore.RED + "-- [Loop] --" + Style.RESET_ALL)
+        print(LOOP_TEMPLATE.format(
+            tab_level=tab_level,
+            HEADER_COLOR=Fore.RED+Style.BRIGHT,
+            VALUE_COLOR=Fore.YELLOW+Style.BRIGHT,
+            END_COLOR=Fore.RESET+Style.RESET_ALL,
+            **loop))
+
+        for segment in loop["segments"]:
+            self.explain_segment(segment, "    ")
+        
+        print(Fore.RED + "------------" + Style.RESET_ALL)
 
 Debug = DebugMaster()

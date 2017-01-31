@@ -5,7 +5,7 @@
         "max_uses": 1,
         "notes": "",
         "elements": [
-            {   "id": "I01", "type": "element",
+            {   "id": "ISA01", "type": "element",
                 "name": "Authorization Information Qualifier",
                 "req": "M",
                 "data_type": "ID",
@@ -13,7 +13,7 @@
                 "length": {"min": 2, "max": 2},
                 "notes": "Code to identify the type of information in the Authorization Information"
             },
-            {   "id": "I02", "type": "element",
+            {   "id": "ISA02", "type": "element",
                 "name": "Authorization Information",
                 "req": "M",
                 "data_type": "AN",
@@ -21,7 +21,7 @@
                 "length": {"min": 10, "max": 10},
                 "notes": "Information used for additional identification or authorization of the interchange sender or the data in the interchange; the type of information is set by the Authorization Information Qualifier (I01)"
             },
-            {   "id": "I03", "type": "element",
+            {   "id": "ISA03", "type": "element",
                 "name": "Security Information Qualifier",
                 "req": "M",
                 "data_type": "ID",
@@ -29,7 +29,7 @@
                 "length": {"min": 2, "max": 2},
                 "notes": "Code to identify the type of information in the Security Information"
             },
-            {   "id": "I04", "type": "element",
+            {   "id": "ISA04", "type": "element",
                 "name": "Security Information",
                 "req": "M",
                 "data_type": "AN",
@@ -37,7 +37,7 @@
                 "length": {"min": 10, "max": 10},
                 "notes": "This is used for identifying the security information about the interchange sender or the data in the interchange; the type of information is set by the Security Information Qualifier (I03)"
             },
-            {   "id": "I05", "type": "element",
+            {   "id": "ISA05", "type": "element",
                 "name": "Interchange Sender ID Qualifier",
                 "req": "M",
                 "data_type": "ID",
@@ -45,7 +45,7 @@
                 "length": {"min": 2, "max": 2},
                 "notes": "Qualifier to designate the system/method of code structure used to designate the sender or receiver ID element being qualified"
             },
-            {   "id": "I06", "type": "element",
+            {   "id": "ISA06", "type": "element",
                 "name": "Interchange Sender ID",
                 "req": "M",
                 "data_type": "AN",
@@ -53,7 +53,7 @@
                 "length": {"min": 15, "max": 15},
                 "notes": "Identification code published by the sender for other parties to use as the receiver ID to route data to them; the sender always codes this value in the sender ID element"
             },
-            {   "id": "I05", "type": "element",
+            {   "id": "ISA07", "type": "element",
                 "name": "Interchange Receiver ID Qualifier",
                 "req": "M",
                 "data_type": "ID",
@@ -61,7 +61,7 @@
                 "length": {"min": 2, "max": 2},
                 "notes": "Qualifier to designate the system/method of code structure used to designate the sender or receiver ID element being qualified"
             },
-            {   "id": "I07", "type": "element",
+            {   "id": "ISA08", "type": "element",
                 "name": "Interchange Receiver ID",
                 "req": "M",
                 "data_type": "AN",
@@ -69,7 +69,7 @@
                 "length": {"min": 15, "max": 15},
                 "notes": "Identification code published by the receiver of the data; When sending, it is used by the sender as their sending ID, thus other parties sending to them will use this as a receiving ID to route data to them"
             },
-            {   "id": "I08", "type": "element",
+            {   "id": "ISA09", "type": "element",
                 "name": "Interchange Date",
                 "req": "M",
                 "data_type": "DT",
@@ -77,7 +77,7 @@
                 "length": {"min": 6, "max": 6},
                 "notes": "Date of the interchange"
             },
-            {   "id": "I09", "type": "element",
+            {   "id": "ISA10", "type": "element",
                 "name": "Interchange Time",
                 "req": "M",
                 "data_type": "TM",
@@ -85,7 +85,7 @@
                 "length": {"min": 4, "max": 4},
                 "notes": "Time of the interchange"
             },
-            {   "id": "I10", "type": "element",
+            {   "id": "ISA11", "type": "element",
                 "name": "Interchange Control Standards Identifier",
                 "req": "M",
                 "data_type": "ID",
@@ -93,7 +93,7 @@
                 "length": {"min": 1, "max": 1},
                 "notes": "Code to identify the agency responsible for the control standard used by the message that is enclosed by the interchange header and trailer"
             },
-            {   "id": "I11", "type": "element",
+            {   "id": "ISA12", "type": "element",
                 "name": "Interchange Control Version Number",
                 "req": "M",
                 "data_type": "ID",
@@ -101,7 +101,7 @@
                 "length": {"min": 5, "max": 5},
                 "notes": "This version number covers the interchange control segments"
             },
-            {   "id": "I12", "type": "element",
+            {   "id": "ISA13", "type": "element",
                 "name": "Interchange Control Number",
                 "req": "M",
                 "data_type": "N0",
@@ -109,7 +109,7 @@
                 "length": {"min": 9, "max": 9},
                 "notes": "A control number assigned by the interchange sender"
             },
-            {   "id": "I13", "type": "element",
+            {   "id": "ISA14", "type": "element",
                 "name": "Acknowledgment Requested",
                 "req": "M",
                 "data_type": "ID",
@@ -117,7 +117,7 @@
                 "length": {"min": 1, "max": 1},
                 "notes": "Code sent by the sender to request an interchange acknowledgment (TA1)"
             },
-            {   "id": "I14", "type": "element",
+            {   "id": "ISA15", "type": "element",
                 "name": "Usage Indicator",
                 "req": "M",
                 "data_type": "ID",
@@ -125,7 +125,7 @@
                 "length": {"min": 1, "max": 1},
                 "notes": "Code to indicate whether data enclosed by this interchange envelope is test, production or information"
             },
-            {   "id": "I15", "type": "element",
+            {   "id": "ISA16", "type": "element",
                 "name": "Component Element Separator",
                 "req": "M",
                 "data_type": "",
@@ -141,7 +141,7 @@
         "max_uses": 1,
         "notes": "",
         "elements": [
-            {   "id": "479", "type": "element",
+            {   "id": "GS01", "type": "element",
                 "name": "Functional Identifier Code",
                 "req": "M",
                 "data_type": "ID",
@@ -149,7 +149,7 @@
                 "length": {"min": 2, "max": 2},
                 "notes": "Code identifying a group of application related transaction sets"
             },
-            {   "id": "142", "type": "element",
+            {   "id": "GS02", "type": "element",
                 "name": "Application Sender's Code",
                 "req": "M",
                 "data_type": "AN",
@@ -157,7 +157,7 @@
                 "length": {"min": 2, "max": 15},
                 "notes": "Code identifying party sending transmission; codes agreed to by trading partners"
             },
-            {   "id": "124", "type": "element",
+            {   "id": "GS03", "type": "element",
                 "name": "Application Receiver's Code",
                 "req": "M",
                 "data_type": "AN",
@@ -165,7 +165,7 @@
                 "length": {"min": 2, "max": 15},
                 "notes": "Code identifying party receiving transmission. Codes agreed to by trading partners"
             },
-            {   "id": "373", "type": "element",
+            {   "id": "GS04", "type": "element",
                 "name": "Date",
                 "req": "M",
                 "data_type": "DT",
@@ -173,7 +173,7 @@
                 "length": {"min": 8, "max": 8},
                 "notes": "Date expressed as CCYYMMDD"
             },
-            {   "id": "337", "type": "element",
+            {   "id": "GS05", "type": "element",
                 "name": "Time",
                 "req": "M",
                 "data_type": "TM",
@@ -181,7 +181,7 @@
                 "length": {"min": 4, "max": 8},
                 "notes": "Time expressed in 24-hour clock time as follows: HHMM, or HHMMSS, or HHMMSSD, or HHMMSSDD"
             },
-            {   "id": "28", "type": "element",
+            {   "id": "GS06", "type": "element",
                 "name": "Group Control Number",
                 "req": "M",
                 "data_type": "N0",
@@ -189,7 +189,7 @@
                 "length": {"min": 1, "max": 9},
                 "notes": "Assigned number originated and maintained by the sender"
             },
-            {   "id": "455", "type": "element",
+            {   "id": "GS07", "type": "element",
                 "name": "Responsible Agency Code",
                 "req": "M",
                 "data_type": "ID",
@@ -197,7 +197,7 @@
                 "length": {"min": 1, "max": 2},
                 "notes": "Code used in conjunction with Data Element 480 to identify the issuer of the standard"
             },
-            {   "id": "480", "type": "element",
+            {   "id": "GS08", "type": "element",
                 "name": "Version / Release / Industry Identifier Code",
                 "req": "M",
                 "data_type": "AN",
@@ -213,7 +213,7 @@
         "max_uses": 1,
         "notes": "",
         "elements": [
-            {   "id": "143", "type": "element",
+            {   "id": "ST01", "type": "element",
                 "name": "Transaction Set Identifier Code",
                 "req": "M",
                 "data_type": "ID",
@@ -221,7 +221,7 @@
                 "length": {"min": 3, "max": 3},
                 "notes": ""
             },
-            {   "id": "329", "type": "element",
+            {   "id": "ST02", "type": "element",
                 "name": "Transaction Set Control Number",
                 "req": "M",
                 "data_type": "AN",
@@ -237,7 +237,7 @@
         "max_uses": 1,
         "notes": "",
         "elements": [
-            {   "id": "373", "type": "element",
+            {   "id": "BIG01", "type": "element",
                 "name": "Invoice Date",
                 "req": "M",
                 "data_type": "DT",
@@ -245,7 +245,7 @@
                 "length": {"min": 8, "max": 8},
                 "notes": "Invoice issue date"
             },
-            {   "id": "76", "type": "element",
+            {   "id": "BIG02", "type": "element",
                 "name": "Invoice Number",
                 "req": "M",
                 "data_type": "AN",
@@ -253,7 +253,7 @@
                 "length": {"min": 1, "max": 22},
                 "notes": "Identifying number assigned by supplier"
             },
-            {   "id": "373", "type": "element",
+            {   "id": "BIG03", "type": "element",
                 "name": "Purchase Order Date",
                 "req": "O",
                 "data_type": "DT",
@@ -261,7 +261,7 @@
                 "length": {"min": 8, "max": 8},
                 "notes": "Original date (assigned by hospital) of the purchase order"
             },
-            {   "id": "324", "type": "element",
+            {   "id": "BIG04", "type": "element",
                 "name": "Purchase Order Number",
                 "req": "O",
                 "data_type": "AN",
@@ -269,7 +269,7 @@
                 "length": {"min": 1, "max": 22},
                 "notes": "Identifying number for purchase order assigned by hospital"
             },
-            {   "id": null, "type": "element",
+            {   "id": "BIG05", "type": "element",
                 "name": "Release Number",
                 "req": "O",
                 "data_type": "AN",
@@ -277,7 +277,7 @@
                 "length": {"min": 1, "max": 30},
                 "notes": "Only used if hospital sent the release # in original PO (element BEG04)"
             },
-            {   "id": null, "type": "element",
+            {   "id": "BIG06", "type": "element",
                 "name": "Change Order Seq. #",
                 "req": "O",
                 "data_type": "AN",
@@ -285,7 +285,7 @@
                 "length": {"min": 1, "max": 8},
                 "notes": "Not used"
             },
-            {   "id": "640", "type": "element",
+            {   "id": "BIG07", "type": "element",
                 "name": "Transaction Type Code",
                 "req": "O",
                 "data_type": "ID",
@@ -299,7 +299,7 @@
                 "length": {"min": 1, "max": 22},
                 "notes": "Identifying number for purchase order assigned by hospital"
             },
-            {   "id": "353", "type": "element",
+            {   "id": "BIG08", "type": "element",
                 "name": "Transaction Set Purpose Code",
                 "req": "O",
                 "data_type": "ID",
@@ -317,7 +317,7 @@
         "max_uses": 100,
         "notes": "The NTE segment permits free-form information/data which, under ANSI X12 standard implementations, is not machine processable. The use of the NTE segment should therefore be avoided, if at all possible, in an automated environment.",
         "elements": [
-            {   "id": "363", "type": "element",
+            {   "id": "NTE01", "type": "element",
                 "name": "Note Reference Code",
                 "req": "O",
                 "data_type": "ID",
@@ -325,7 +325,7 @@
                 "length": {"min": 3, "max": 3},
                 "notes": "Code identifying the functional area or purpose for which the note applies"
             },
-            {   "id": "352", "type": "element",
+            {   "id": "NTE02", "type": "element",
                 "name": "Description",
                 "req": "M",
                 "data_type": "AN",
@@ -341,7 +341,7 @@
         "max_uses": 1,
         "notes": "If the CUR segment is not used, monetary values are assumed to be expressed in the currency of the country of the transaction originator.",
         "elements": [
-            {   "id": "98", "type": "element",
+            {   "id": "CUR01", "type": "element",
                 "name": "Entity Identifier Code",
                 "req": "M",
                 "data_type": "ID",
@@ -349,7 +349,7 @@
                 "length": {"min": 2, "max": 3},
                 "notes": "Code identifying an organizational entity, a physical location, property or an individual"
             },
-            {   "id": "100", "type": "element",
+            {   "id": "CUR02", "type": "element",
                 "name": "Currency Code",
                 "req": "M",
                 "data_type": "ID",
@@ -357,7 +357,7 @@
                 "length": {"min": 3, "max": 3},
                 "notes": "Code (Standard ISO) for country in whose currency the charges are specified"
             },
-            {   "id": "280", "type": "element",
+            {   "id": "CUR03", "type": "element",
                 "name": "Exchange Rate",
                 "req": "O",
                 "data_type": "R",
@@ -376,7 +376,7 @@
             {"rule": "ATLEASTONE", "criteria": [2, 3]}
         ],
         "elements": [
-            {   "id": "128", "type": "element",
+            {   "id": "REF01", "type": "element",
                 "name": "Reference Identification Qualifier",
                 "req": "M",
                 "data_type": "ID",
@@ -396,7 +396,7 @@
                 "length": {"min": 2, "max": 3},
                 "notes": "Code qualifying the Reference Identification"
             },
-            {   "id": "127", "type": "element",
+            {   "id": "REF02", "type": "element",
                 "name": "Reference Identification Number",
                 "req": "O",
                 "data_type": "AN",
@@ -404,7 +404,7 @@
                 "length": {"min": 1, "max": 30},
                 "notes": "Reference information as defined for a particular Transaction Set or as specified by the Reference Identification Qualifier"
             },
-            {   "id": "352", "type": "element",
+            {   "id": "REF03", "type": "element",
                 "name": "Description",
                 "req": "O",
                 "data_type": "AN",
@@ -414,158 +414,345 @@
             }
         ]
     },
-    {   "id": "N1", "type": "segment",
-        "name": "Name",
+    {   "id": "L_N1", "type": "loop",
+        "name": "Name Loop",
         "req": "O",
-        "max_uses": 1,
-        "notes": "To identify a party by type of organization, name, and code",
-        "elements": [
-            {   "id": "98", "type": "element",
-                "name": "Entity Identifier Code",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "BT": "Bill-to-Party", 
-                    "BY": "Buying Party (Purchaser)", 
-                    "CA": "Carrier", 
-                    "DU": "Reseller", 
-                    "EN": "End User", 
-                    "II": "Issuer of Invoice", 
-                    "PR": "Payer", 
-                    "SE": "Selling Party", 
-                    "SO": "Sold To If Different From Bill To", 
-                    "ST": "Ship To"
-                },
-                "length": {"min": 2, "max": 3},
-                "notes": "Code identifying an organizational entity, a physical location, property or an individual"
-            },
-            {   "id": "93", "type": "element",
+        "repeat": 200,
+        "segments": [
+            {   "id": "N1", "type": "segment",
                 "name": "Name",
                 "req": "O",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {"min": 1, "max": 60},
-                "notes": "Free-form name"
+                "max_uses": 1,
+                "notes": "To identify a party by type of organization, name, and code",
+                "elements": [
+                    {   "id": "N101", "name": "Entity Identifier Code",
+                        "type": "element",
+                        "req": "M",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "BT": "Bill-to-Party", 
+                            "BY": "Buying Party (Purchaser)", 
+                            "CA": "Carrier", 
+                            "DU": "Reseller", 
+                            "EN": "End User", 
+                            "II": "Issuer of Invoice", 
+                            "PR": "Payer", 
+                            "SE": "Selling Party", 
+                            "SO": "Sold To If Different From Bill To", 
+                            "ST": "Ship To",
+                            "VN": "Vendor"
+                        },
+                        "length": {"min": 2, "max": 3},
+                        "notes": "Code identifying an organizational entity, a physical location, property or an individual"
+                    },
+                    {   "id": "N102", "name": "Name",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 60},
+                        "notes": "Free-form name"
+                    },
+                    {   "id": "N103", "name": "Identification Code Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 2},
+                        "notes": "Code designating the system/method of code structure used for Identification Code (N104)"
+                    },
+                    {   "id": "N104", "name": "Identification Code",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "1": "DUNS Number", 
+                            "9": "DUNS Number with 4-digit suffix", 
+                            "21": "Health Care Industry ID No.",
+                            "91": "Assigned by seller",
+                            "92": "Assigned by Buyer or Agent",
+                            "ZZ": "Mutually Defined"
+                        },
+                        "length": {"min": 1, "max": 2},
+                        "notes": "Receiver ID Number"
+                    }
+                ]
             },
-            {   "id": "66", "type": "element",
-                "name": "Identification Code Qualifier",
+            {   "id": "N2", "type": "segment",
+                "name": "Additional Name Information",
                 "req": "O",
-                "data_type": "ID",
-                "data_type_ids": null,
-                "length": {"min": 1, "max": 2},
-                "notes": "Code designating the system/method of code structure used for Identification Code (67)"
-            }
-        ]
-    },
-    {   "id": "N2", "type": "segment",
-        "name": "Additional Name Information",
-        "req": "O",
-        "max_uses": 2,
-        "notes": "To specify additional names or those longer than 35 characters in length",
-        "elements": [
-            {   "id": "93", "type": "element",
-                "name": "Name",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {"min": 1, "max": 60},
-                "notes": "Free-form name"
+                "max_uses": 2,
+                "notes": "To specify additional names or those longer than 35 characters in length",
+                "elements": [
+                    {   "id": "N201", "type": "element",
+                        "name": "Name",
+                        "req": "M",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 60},
+                        "notes": "Free-form name"
+                    },
+                    {   "id": "N202", "type": "element",
+                        "name": "Name",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 60},
+                        "notes": "Free-form name"
+                    }
+                ]
             },
-            {   "id": "93", "type": "element",
-                "name": "Name",
-                "req": "O",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {"min": 1, "max": 60},
-                "notes": "Free-form name"
-            }
-        ]
-    },
-    {   "id": "N3", "type": "segment",
-        "name": "Address Information",
-        "req": "O",
-        "max_uses": 2,
-        "notes": "To specify the location of the named party",
-        "elements": [
-            {   "id": "166", "type": "element",
+            {   "id": "N3", "type": "segment",
                 "name": "Address Information",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {"min": 1, "max": 55},
-                "notes": "Address Information"
-            },
-            {   "id": "166", "type": "element",
-                "name": "Address Information",
                 "req": "O",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {"min": 1, "max": 55},
-                "notes": "Address Information"
+                "max_uses": 2,
+                "notes": "To specify the location of the named party",
+                "elements": [
+                    {   "id": "N301", "name": "Address Information",
+                        "type": "element",
+                        "req": "M",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 55},
+                        "notes": "Address Information"
+                    },
+                    {   "id": "N302", "name": "Address Information",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 55},
+                        "notes": "Address Information"
+                    }
+                ]
+            },
+            {   "id": "N4", "type": "segment",
+                "name": "Geographic Location",
+                "req": "O",
+                "max_uses": 1,
+                "notes": "To specify the geographic place of the named party",
+                "elements": [
+                    {   "id": "N401", "type": "element",
+                        "name": "City Name",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {"min": 2, "max": 30},
+                        "notes": "Address Information"
+                    },
+                    {   "id": "N402", "type": "element",
+                        "name": "State or Province Code",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": null,
+                        "length": {"min": 2, "max": 2},
+                        "notes": "Code (Standard State/Province) as defined by appropriate government agency"
+                    },
+                    {   "id": "N403", "type": "element",
+                        "name": "Postal Code",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": null,
+                        "length": {"min": 3, "max": 15},
+                        "notes": "Code defining international postal zone code excluding punctuation and blanks (zip code for United States)"
+                    },
+                    {   "id": "N404", "type": "element",
+                        "name": "Country Code",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": null,
+                        "length": {"min": 2, "max": 3},
+                        "notes": "Code identifying the country"
+                    }
+                ]
+            },
+            {   "id": "PER", "type": "segment",
+                "name": "Administrative Communications Contact",
+                "req": "O",
+                "max_uses": 3,
+                "notes": "To identify a person or office to whom administrative communications should be directed",
+                "elements": [
+                    {   "id": "PER01", "type": "element",
+                        "name": "Contact Function Code",
+                        "req": "M",
+                        "data_type": "ID",
+                        "data_type_ids": {"CN": "General Contact", "RE": "Contact For Problems"},
+                        "length": {"min": 2, "max": 2},
+                        "notes": "Code identifying the major duty or responsibility of the person or group named"
+                    },
+                    {   "id": "PER02", "type": "element",
+                        "name": "Name",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 60},
+                        "notes": "Free-form name"
+                    }
+                ]
             }
         ]
     },
-    {   "id": "N4", "type": "segment",
-        "name": "Geographic Location",
+    {   "id": "ITD", "type": "segment",
+        "name": "Terms of Sale/Deferred Terms of Sale",
         "req": "O",
-        "max_uses": 1,
-        "notes": "To specify the geographic place of the named party",
+        "max_uses": 10,
+        "notes": "To specify terms of sale. In the Header position of the Invoice X12 EDI document, this segment is used to specify terms of the invoice. In the transitional period for the microcomputer industry, from paper to full automated EDI transactions, there may be a perceived need to send text data with the terms. Clearly the goal is to have the entire microcomputer industry participating in EDI. Therefore, if text data is needed to be sent for terms, ITD 12 will contain the free form text. If additional text is needed, additional ITD segments should be used.",
+        "syntax": [
+            {"rule": "IFATLEASTONE", "criteria": [3, 4, 5]},
+            {"rule": "IFATLEASTONE", "criteria": [8, 4, 5]},
+            {"rule": "IFATLEASTONE", "criteria": [9, 10, 11]}
+        ],
         "elements": [
-            {   "id": "19", "type": "element",
-                "name": "City Name",
-                "req": "O",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {"min": 2, "max": 30},
-                "notes": "Address Information"
-            },
-            {   "id": "156", "type": "element",
-                "name": "State or Province Code",
+            {   "id": "ITD01", "type": "element",
+                "name": "Terms Type Code",
                 "req": "O",
                 "data_type": "ID",
-                "data_type_ids": null,
+                "data_type_ids": {"14": "Previously agreed upon"},
                 "length": {"min": 2, "max": 2},
-                "notes": "Code (Standard State/Province) as defined by appropriate government agency"
+                "notes": "Code identifying type of payment terms"
             },
-            {   "id": "116", "type": "element",
-                "name": "Postal Code",
+            {   "id": "ITD02", "type": "element",
+                "name": "Terms Basis Date Code",
                 "req": "O",
                 "data_type": "ID",
-                "data_type_ids": null,
-                "length": {"min": 3, "max": 15},
-                "notes": "Code defining international postal zone code excluding punctuation and blanks (zip code for United States)"
+                "data_type_ids": {"3": "Invoice Date"},
+                "length": {"min": 1, "max": 2},
+                "notes": "Code identifying the beginning of the terms period"
             },
-            {   "id": "26", "type": "element",
-                "name": "Country Code",
+            {   "id": "ITD03", "type": "element",
+                "name": "Terms Discount %",
                 "req": "O",
-                "data_type": "ID",
+                "data_type": "R",
                 "data_type_ids": null,
-                "length": {"min": 2, "max": 3},
-                "notes": "Code identifying the country"
+                "length": {"min": 1, "max": 6},
+                "notes": "Available to hospital if invoice is paid on or before Terms Discount Due Date"
+            },
+            {   "id": "ITD04", "type": "element",
+                "name": "Terms Discount Due Date",
+                "req": "O",
+                "data_type": "DT",
+                "data_type_ids": null,
+                "length": {"min": 8, "max": 8},
+                "notes": "Date payment is due if discount is to be earned (CCYYMMDD)"
+            },
+            {   "id": "ITD05", "type": "element",
+                "name": "Terms Discount Days Due",
+                "req": "O",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 3},
+                "notes": "Maximum number of days to pass before payment is due"
+            },
+            {   "id": "ITD06", "type": "element",
+                "name": "Terms Net Due Date",
+                "req": "O",
+                "data_type": "DT",
+                "data_type_ids": null,
+                "length": {"min": 8, "max": 8},
+                "notes": "Date when total invoice amount is due"
+            },
+            {   "id": "ITD07", "type": "element",
+                "name": "Terms Net Days",
+                "req": "O",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 3},
+                "notes": "Payment terms in net days"
+            },
+            {   "id": "ITD08", "type": "element",
+                "name": "Terms Discount Amount",
+                "req": "O",
+                "data_type": "N2",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 10},
+                "notes": "Total amount of terms discount"
+            },
+            {   "id": "ITD09", "type": "element",
+                "name": "Terms Deferred Due Date",
+                "req": "O",
+                "data_type": "DT",
+                "data_type_ids": null,
+                "length": {"min": 8, "max": 8},
+                "notes": "Date deferred payment or percent of invoice payable is due"
+            },
+            {   "id": "ITD10", "type": "element",
+                "name": "Deferred Amount Due",
+                "req": "O",
+                "data_type": "N2",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 10},
+                "notes": "Deferred amount due for payment"
+            },
+            {   "id": "ITD11", "type": "element",
+                "name": "% Invoice Payable",
+                "req": "O",
+                "data_type": "R",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 5},
+                "notes": "Amount of invoice payable expressed in percent"
+            },
+            {   "id": "ITD12", "type": "element",
+                "name": "Description",
+                "req": "O",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {"min": 1, "max": 80},
+                "notes": "Description of terms"
             }
         ]
     },
-    {   "id": "PER", "type": "segment",
-        "name": "Administrative Communications Contact",
+    {   "id": "DTM", "type": "segment",
+        "name": "Date/Time Reference",
         "req": "O",
-        "max_uses": 3,
+        "max_uses": 10,
         "notes": "To identify a person or office to whom administrative communications should be directed",
         "elements": [
-            {   "id": "366", "type": "element",
-                "name": "Contact Function Code",
+            {   "id": "DTM01", "type": "element",
+                "name": "Date/Time Qualifier",
                 "req": "M",
                 "data_type": "ID",
-                "data_type_ids": {"CN": "General Contact", "RE": "Contact For Problems"},
-                "length": {"min": 2, "max": 2},
-                "notes": "Code identifying the major duty or responsibility of the person or group named"
+                "data_type_ids": {"002": "Delivery requested", "011": "Shipped", "036": "Expiration Date"},
+                "length": {"min": 3, "max": 3},
+                "notes": "Code specifying type of date or time, or both date and time"
             },
-            {   "id": "93", "type": "element",
-                "name": "Name",
+            {   "id": "DTM02", "type": "element",
+                "name": "Date",
                 "req": "O",
-                "data_type": "AN",
+                "data_type": "DT",
                 "data_type_ids": null,
-                "length": {"min": 1, "max": 60},
-                "notes": "Free-form name"
+                "length": {"min": 8, "max": 8},
+                "notes": "Date expressed as CCYYMMDD"
+            }
+        ]
+    },
+    {   "id": "L_IT1", "type": "loop",
+        "name": "Baseline Item Data Loop",
+        "req": "O",
+        "repeat": 200,
+        "segments": [
+            {   "id": "IT1", "type": "segment",
+                "name": "Baseline Item Data (Invoice)",
+                "req": "M",
+                "max_uses": 1,
+                "notes": "To specify the basic and most frequently used line item data for the invoice and related transactions",
+                "elements": [
+                    {   "id": "IT101", "type": "element",
+                        "name": "Assigned Identification",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 20},
+                        "notes": "Alphanumeric characters assigned for differentiation within a transaction set. May be original line number from PO"
+                    },
+                    {   "id": "IT102", "type": "element",
+                        "name": "Quantity Invoiced",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {"min": 1, "max": 10},
+                        "notes": "Date expressed as CCYYMMDD"
+                    }
+                ]
             }
         ]
     }
