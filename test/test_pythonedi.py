@@ -5,8 +5,9 @@ Test cases for pythonedi module
 import string
 import random
 import unittest
-import pythonedi
 from datetime import datetime
+
+import pythonedi
 
 class TestGenerate810(unittest.TestCase):
 
@@ -27,8 +28,8 @@ class TestGenerate810(unittest.TestCase):
                 "306000000", # Interchange Sender ID
                 "ZZ", # Interchange Receiver ID Qualifier
                 "306009503", # Interchange Receiver ID
-                datetime(2006, 06, 24, 10, 00), # Interchange Date
-                datetime(2006, 06, 24, 10, 00), # Interchange Time
+                datetime(2006, 6, 24, 10, 00), # Interchange Date
+                datetime(2006, 6, 24, 10, 00), # Interchange Time
                 "U", # Interchange Control Standards Identifier
                 "00401", # Interchange Control Version Number
                 "000010770", # Interchange Control Number
@@ -40,8 +41,8 @@ class TestGenerate810(unittest.TestCase):
                 "IN", # Functional Identifier Code
                 "306000000", # Application Sender's Code
                 "306009503", # Application Receiver's Code
-                datetime(2006, 06, 24, 10, 00), # Date
-                datetime(2006, 06, 24, 10, 00), # Time
+                datetime(2006, 6, 24, 10, 00), # Date
+                datetime(2006, 6, 24, 10, 00), # Time
                 "1164", # Group Control Number
                 "X", # Responsible Agency Code
                 "004010", # Version/Release/Industry Identifier Code
@@ -51,9 +52,9 @@ class TestGenerate810(unittest.TestCase):
                 "11640002" # Transaction Set Control Number
             ],
             "BIG": [
-                datetime(2006, 06, 24), # Invoice date
+                datetime(2006, 6, 24), # Invoice date
                 "INV-00777", # Invoice number
-                datetime(2006, 06, 22), # Purchase order date
+                datetime(2006, 6, 22), # Purchase order date
                 "PO-001063", # PO Number
                 None,
                 None,
@@ -99,12 +100,12 @@ class TestGenerate810(unittest.TestCase):
                 None, # Terms Discount %
                 None, # Terms Discount Due Date
                 None, # Terms Discount Days Due
-                datetime(2006, 06, 24), # Terms Net Due Date
+                datetime(2006, 6, 24), # Terms Net Due Date
                 "30" # Terms Net Days
             ],
             "DTM": [
                 "011", # Date/Time Qualifier: Shipped
-                datetime(2006, 06, 20) # Date
+                datetime(2006, 6, 20) # Date
             ],
             "L_IT1": [
                 {

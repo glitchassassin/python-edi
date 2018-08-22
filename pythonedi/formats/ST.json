@@ -1,16 +1,11 @@
 [
-    {
-        "type": "segment",
-        "id": "ST",
+    {   "id": "ST", "type": "segment",
         "name": "Transaction Set Header",
         "req": "M",
         "max_uses": 1,
-        "repeat": null,
         "notes": "",
         "elements": [
-            {
-                "type": "element",
-                "id": "143",
+            {   "id": "ST01", "type": "element",
                 "name": "Transaction Set Identifier Code",
                 "req": "M",
                 "data_type": "ID",
@@ -18,9 +13,7 @@
                 "length": {"min": 3, "max": 3},
                 "notes": ""
             },
-            {
-                "type": "element",
-                "id": "329",
+            {   "id": "ST02", "type": "element",
                 "name": "Transaction Set Control Number",
                 "req": "M",
                 "data_type": "AN",
