@@ -37,7 +37,7 @@ class EDIParser(object):
 
         to_return = {}
         found_segments = []
-        
+
         while len(edi_segments) > 0:
             segment = edi_segments[0]
             if segment == "":
@@ -63,14 +63,17 @@ class EDIParser(object):
                     segment_name = seg_format["id"]
                     segment_obj, edi_segments = self.parse_loop(edi_segments, seg_format)
                     break
-                
+
             if segment_obj is None:
                 Debug.log_error("Unrecognized segment: {}".format(segment))
                 edi_segments = edi_segments[1:] # Skipping segment
                 continue
                 # raise ValueError
 
-            found_segments.append(segment_name)
+            if (segment_name in to_return) and (isinstance(to_return[segment_name], list)):
+                to_return[segment_name].extend(segment_obj)
+            else:
+                to_return[segment_name] = segment_obj
             to_return[segment_name] = segment_obj
 
 
@@ -156,7 +159,7 @@ class EDIParser(object):
             if segment_obj is None:
                 # Reached the end of valid segments; return what we have
                 break
-            elif segment_name == loop_format["segments"][0]["id"] and loop_dict != {}: 
+            elif segment_name == loop_format["segments"][0]["id"] and loop_dict != {}:
                 # Beginning a new loop, tie off this one and start fresh
                 loop_list.append(loop_dict.copy())
                 loop_dict = {}
