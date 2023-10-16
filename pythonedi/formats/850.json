@@ -1,0 +1,1529 @@
+[
+    {
+        "id": "ISA",
+        "type": "segment",
+        "name": "Interchange Control Header",
+        "req": "M",
+        "max_uses": 1,
+        "notes": "",
+        "elements": [
+            {
+                "id": "ISA01",
+                "type": "element",
+                "name": "Authorization Information Qualifier",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "00": "(default)"
+                },
+                "length": {
+                    "min": 2,
+                    "max": 2
+                },
+                "notes": "Code to identify the type of information in the Authorization Information"
+            },
+            {
+                "id": "ISA02",
+                "type": "element",
+                "name": "Authorization Information",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 10,
+                    "max": 10
+                },
+                "notes": "Information used for additional identification or authorization of the interchange sender or the data in the interchange; the type of information is set by the Authorization Information Qualifier (I01)"
+            },
+            {
+                "id": "ISA03",
+                "type": "element",
+                "name": "Security Information Qualifier",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "00": "(default)"
+                },
+                "length": {
+                    "min": 2,
+                    "max": 2
+                },
+                "notes": "Code to identify the type of information in the Security Information"
+            },
+            {
+                "id": "ISA04",
+                "type": "element",
+                "name": "Security Information",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 10,
+                    "max": 10
+                },
+                "notes": "This is used for identifying the security information about the interchange sender or the data in the interchange; the type of information is set by the Security Information Qualifier (I03)"
+            },
+            {
+                "id": "ISA05",
+                "type": "element",
+                "name": "Interchange Sender ID Qualifier",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "ZZ": "Mutually Defined"
+                },
+                "length": {
+                    "min": 2,
+                    "max": 2
+                },
+                "notes": "Qualifier to designate the system/method of code structure used to designate the sender or receiver ID element being qualified"
+            },
+            {
+                "id": "ISA06",
+                "type": "element",
+                "name": "Interchange Sender ID",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 15,
+                    "max": 15
+                },
+                "notes": "Identification code published by the sender for other parties to use as the receiver ID to route data to them; the sender always codes this value in the sender ID element"
+            },
+            {
+                "id": "ISA07",
+                "type": "element",
+                "name": "Interchange Receiver ID Qualifier",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "ZZ": "Mutually Defined"
+                },
+                "length": {
+                    "min": 2,
+                    "max": 2
+                },
+                "notes": "Qualifier to designate the system/method of code structure used to designate the sender or receiver ID element being qualified"
+            },
+            {
+                "id": "ISA08",
+                "type": "element",
+                "name": "Interchange Receiver ID",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 15,
+                    "max": 15
+                },
+                "notes": "Identification code published by the receiver of the data; When sending, it is used by the sender as their sending ID, thus other parties sending to them will use this as a receiving ID to route data to them"
+            },
+            {
+                "id": "ISA09",
+                "type": "element",
+                "name": "Interchange Date",
+                "req": "M",
+                "data_type": "DT",
+                "data_type_ids": null,
+                "length": {
+                    "min": 6,
+                    "max": 6
+                },
+                "notes": "Date of the interchange"
+            },
+            {
+                "id": "ISA10",
+                "type": "element",
+                "name": "Interchange Time",
+                "req": "M",
+                "data_type": "TM",
+                "data_type_ids": null,
+                "length": {
+                    "min": 4,
+                    "max": 4
+                },
+                "notes": "Time of the interchange"
+            },
+            {
+                "id": "ISA11",
+                "type": "element",
+                "name": "Interchange Control Standards Identifier",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 1
+                },
+                "notes": "Code to identify the agency responsible for the control standard used by the message that is enclosed by the interchange header and trailer"
+            },
+            {
+                "id": "ISA12",
+                "type": "element",
+                "name": "Interchange Control Version Number",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "U": "(default)"
+                },
+                "length": {
+                    "min": 5,
+                    "max": 5
+                },
+                "notes": "This version number covers the interchange control segments"
+            },
+            {
+                "id": "ISA13",
+                "type": "element",
+                "name": "Interchange Control Number",
+                "req": "M",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {
+                    "min": 9,
+                    "max": 9
+                },
+                "notes": "A control number assigned by the interchange sender"
+            },
+            {
+                "id": "ISA14",
+                "type": "element",
+                "name": "Acknowledgment Requested",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "0": "Requested"
+                },
+                "length": {
+                    "min": 1,
+                    "max": 1
+                },
+                "notes": "Code sent by the sender to request an interchange acknowledgment (TA1)"
+            },
+            {
+                "id": "ISA15",
+                "type": "element",
+                "name": "Usage Indicator",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "T": "Test",
+                    "P": "Production",
+                    "I": "Information"
+                },
+                "length": {
+                    "min": 1,
+                    "max": 1
+                },
+                "notes": "Code to indicate whether data enclosed by this interchange envelope is test, production or information"
+            },
+            {
+                "id": "ISA16",
+                "type": "element",
+                "name": "Component Element Separator",
+                "req": "M",
+                "data_type": "",
+                "data_type_ids": {
+                    "T": "Test",
+                    "P": "Production",
+                    "I": "Information"
+                },
+                "length": {
+                    "min": 1,
+                    "max": 1
+                },
+                "notes": "Type is not applicable; the component element separator is a delimiter and not a data element; this field provides the delimiter used to separate component data elements within a composite data structure; this value must be different than the data element separator and the segment terminator"
+            }
+        ]
+    },
+    {
+        "id": "GS",
+        "type": "segment",
+        "name": "Functional Group Header",
+        "req": "M",
+        "max_uses": 1,
+        "notes": "",
+        "elements": [
+            {
+                "id": "GS01",
+                "type": "element",
+                "name": "Functional Identifier Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "IN": "Invoice"
+                },
+                "length": {
+                    "min": 2,
+                    "max": 2
+                },
+                "notes": "Code identifying a group of application related transaction sets"
+            },
+            {
+                "id": "GS02",
+                "type": "element",
+                "name": "Application Sender's Code",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 2,
+                    "max": 15
+                },
+                "notes": "Code identifying party sending transmission; codes agreed to by trading partners"
+            },
+            {
+                "id": "GS03",
+                "type": "element",
+                "name": "Application Receiver's Code",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 2,
+                    "max": 15
+                },
+                "notes": "Code identifying party receiving transmission. Codes agreed to by trading partners"
+            },
+            {
+                "id": "GS04",
+                "type": "element",
+                "name": "Date",
+                "req": "M",
+                "data_type": "DT",
+                "data_type_ids": null,
+                "length": {
+                    "min": 8,
+                    "max": 8
+                },
+                "notes": "Date expressed as CCYYMMDD"
+            },
+            {
+                "id": "GS05",
+                "type": "element",
+                "name": "Time",
+                "req": "M",
+                "data_type": "TM",
+                "data_type_ids": null,
+                "length": {
+                    "min": 4,
+                    "max": 8
+                },
+                "notes": "Time expressed in 24-hour clock time as follows: HHMM, or HHMMSS, or HHMMSSD, or HHMMSSDD"
+            },
+            {
+                "id": "GS06",
+                "type": "element",
+                "name": "Group Control Number",
+                "req": "M",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 9
+                },
+                "notes": "Assigned number originated and maintained by the sender"
+            },
+            {
+                "id": "GS07",
+                "type": "element",
+                "name": "Responsible Agency Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "X": "",
+                    "T": ""
+                },
+                "length": {
+                    "min": 1,
+                    "max": 2
+                },
+                "notes": "Code used in conjunction with Data Element 480 to identify the issuer of the standard"
+            },
+            {
+                "id": "GS08",
+                "type": "element",
+                "name": "Version / Release / Industry Identifier Code",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 12
+                },
+                "notes": "Code indicating the version, release, subrelease, and industry identifier of the EDI standard being used, including the GS and GE segments; if code in DE455 in GS segment is X, then in DE 480 positions 1-3 are the version number; positions 4-6 are the release and subrelease, level of the version; and positions 7-12 are the industry or trade association identifiers (optionally assigned by user); if code in DE455 in GS segment is T, then other formats are allowed"
+            }
+        ]
+    },
+    {
+        "id": "ST",
+        "type": "segment",
+        "name": "Transaction Set Header",
+        "req": "M",
+        "max_uses": 1,
+        "notes": "To indicate the start of a transaction set and to assign a control number",
+        "elements": [
+            {
+                "id": "ST01",
+                "type": "element",
+                "name": "Transaction Set Identifier Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "850": "Purchase Order"
+                },
+                "length": {
+                    "min": 3,
+                    "max": 3
+                },
+                "notes": "Code identifying a Transaction Set"
+            },
+            {
+                "id": "ST02",
+                "type": "element",
+                "name": "Transaction Set Control Number",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 4,
+                    "max": 9
+                },
+                "notes": "Identifying control number that must be unique within the transaction set functional group assigned by the originator for a transaction set"
+            }
+        ]
+    },
+    {
+        "id": "BEG",
+        "type": "segment",
+        "name": "Beginning Segment for Purchase Order",
+        "req": "M",
+        "max_uses": 1,
+        "notes": "",
+        "elements": [
+            {
+                "id": "BEG01",
+                "type": "element",
+                "name": "Transaction Set Purpose Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "00": "Original"
+                },
+                "length": {
+                    "min": 2,
+                    "max": 2
+                },
+                "notes": "Code identifying purpose of transaction set"
+            },
+            {
+                "id": "BEG02",
+                "type": "element",
+                "name": "Transaction Order Type Code",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "SA": "Stand-alone Order"
+                },
+                "length": {
+                    "min": 2,
+                    "max": 2
+                },
+                "notes": "Code identifying the type of Purchase Order"
+            },
+            {
+                "id": "BEG03",
+                "type": "element",
+                "name": "Purchase Order Number",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 22
+                },
+                "notes": "Identifying numer for Purchase Order assigned by the orderer/purchaser"
+            },
+            {
+                "id": "BEG04",
+                "type": "element",
+                "name": "Release Number",
+                "req": "O",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 30
+                },
+                "notes": "Number identifying a release against a Purchase Order previously placed by the parties involved in the transaction"
+            },
+            {
+                "id": "BEG05",
+                "type": "element",
+                "name": "Date",
+                "req": "M",
+                "data_type": "DT",
+                "data_type_ids": null,
+                "length": {
+                    "min": 8,
+                    "max": 8
+                },
+                "notes": "Date expressed as CCYYMMDD where CC represents the first two digits of the calendar year"
+            }
+        ]
+    },
+    {
+        "id": "REF",
+        "type": "segment",
+        "name": "Reference Information",
+        "req": "O",
+        "max_uses": 1,
+        "notes": "To specify identifying information",
+        "elements": [
+            {
+                "id": "REF01",
+                "type": "element",
+                "name": "Reference Identification Qualifier",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "DP": "Department Number"
+                },
+                "length": {
+                    "min": 2,
+                    "max": 3
+                },
+                "notes": "Code identifying the Reference Identification"
+            },
+            {
+                "id": "REF02",
+                "type": "element",
+                "name": "Reference Identification",
+                "req": "O",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 80
+                },
+                "notes": "Reference information as defined for a particular Transaction Set or as specified by the Reference Identification Qualifier"
+            }
+        ]
+    },
+    {
+        "id": "DTM",
+        "type": "segment",
+        "name": "Date/Time Reference",
+        "req": "O",
+        "max_uses": 10,
+        "notes": "To specify pertinent dates and times",
+        "elements": [
+            {
+                "id": "DTM01",
+                "type": "element",
+                "name": "Date/Time Qualifier",
+                "req": "M",
+                "data_type": "ID",
+                "data_type_ids": {
+                    "001": "Cancel After",
+                    "011": "Shipped"
+                },
+                "length": {
+                    "min": 3,
+                    "max": 3
+                },
+                "notes": "Code to identify the type of information in the Authorization Information"
+            },
+            {
+                "id": "DTM02",
+                "type": "element",
+                "name": "Date",
+                "req": "O",
+                "data_type": "DT",
+                "data_type_ids": {
+                    "001": "Cancel After",
+                    "011": "Shipped"
+                },
+                "length": {
+                    "min": 3,
+                    "max": 3
+                },
+                "notes": "Date expressed as CCYYMMDD where CC represents the first two digits of the calendar year"
+            }
+        ]
+    },
+    {
+        "id": "L_N1",
+        "type": "loop",
+        "name": "Name Loop",
+        "req": "O",
+        "repeat": 200,
+        "segments": [
+            {
+                "id": "N1",
+                "type": "segment",
+                "name": "Party Identification",
+                "req": "M",
+                "max_uses": 1,
+                "notes": "To identify a party by type of organization, name, and code",
+                "elements": [
+                    {
+                        "id": "N101",
+                        "name": "Entity Identifier Code",
+                        "type": "element",
+                        "req": "M",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "SU": "Supplier/Manufacturer",
+                            "ST": "Ship To"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 3
+                        },
+                        "notes": "Code identifying an organizational entity, a physical location, property or an individual"
+                    },
+                    {
+                        "id": "N102",
+                        "name": "Name",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 60
+                        },
+                        "notes": "Free-form name"
+                    },
+                    {
+                        "id": "N103",
+                        "name": "Identification Code Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "92": "Assigned by Buyer or Buyer's Agent"
+                        },
+                        "length": {
+                            "min": 1,
+                            "max": 2
+                        },
+                        "notes": "Code designating the system/method of code structure used for Identification Code (67)"
+                    },
+                    {
+                        "id": "N104",
+                        "name": "Identification Code",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "L_PO1",
+        "type": "loop",
+        "name": "PO1 Loop",
+        "req": "O",
+        "repeat": 200,
+        "segments": [
+            {
+                "id": "PO1",
+                "type": "segment",
+                "name": "Baseline Item Data",
+                "req": "M",
+                "max_uses": 1,
+                "notes": "To specify basic and most frequently used line item data",
+                "elements": [
+                    {
+                        "id": "PO101",
+                        "name": "Assigned Identification",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 20
+                        },
+                        "notes": "Alphanumeric characters assigned for differentiation within a transaction set"
+                    },
+                    {
+                        "id": "PO102",
+                        "name": "Quantity",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "PO103",
+                        "name": "Unit or Basis for Measurement Code",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "EA": "Each"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code specifying the units in which a value is being expressed, or manner in which a measurement has been taken"
+                    },
+                    {
+                        "id": "PO104",
+                        "name": "Unit Price",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 17
+                        },
+                        "notes": "Price per unit of product, service, commodity, etc."
+                    },
+                    {
+                        "id": "PO105",
+                        "name": "Basis of Unit Price Code",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "CA": "Catalog"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type of unit price for an item"
+                    },
+                    {
+                        "id": "PO106",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "UP": "GTIN-12"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service"
+                    },
+                    {
+                        "id": "PO107",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO108",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "SK": "Stock Keeping Unit (SKU)"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO109",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO110",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "IZ": "Buyer's Size Code"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO111",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO112",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "CL": "Color"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO113",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO114",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "ST": "Style Number"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO115",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO116",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "BC": "Supplier Brand Code"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO117",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO118",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "BL": "Brand/Label"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO119",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO120",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "IZ": "Buyer's Size Code"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO121",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO122",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "IZ": "Buyer's Size Code"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO123",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    },
+                    {
+                        "id": "PO124",
+                        "name": "Product/Service ID Qualifier",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "IZ": "Buyer's Size Code"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code identifying the type/source of the descriptive number used in Product/Service ID (234)"
+                    },
+                    {
+                        "id": "PO125",
+                        "name": "Product/Service ID",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 80
+                        },
+                        "notes": "Identifying number for a product or service"
+                    }
+                ]
+            },
+            {
+                "id": "L_CTP",
+                "type": "loop",
+                "name": "CTP Loop",
+                "req": "O",
+                "repeat": 200,
+                "segments": [
+                    {
+                        "id": "CTP",
+                        "type": "segment",
+                        "name": "Pricing Information",
+                        "req": "M",
+                        "max_uses": 1,
+                        "notes": "To specify pricing information",
+                        "elements": [
+                            {
+                                "id": "CTP01",
+                                "name": "Class of Trade Code",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": {
+                                    "TR": "General Trade"
+                                },
+                                "length": {
+                                    "min": 2,
+                                    "max": 2
+                                },
+                                "notes": "Code indicating class of trade"
+                            },
+                            {
+                                "id": "CTP02",
+                                "name": "Price Identifier Code",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": {
+                                    "RTL": "Retail"
+                                },
+                                "length": {
+                                    "min": 3,
+                                    "max": 3
+                                },
+                                "notes": "Code identifying pricing specification"
+                            },
+                            {
+                                "id": "CTP03",
+                                "name": "Unit Price",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "R",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 17
+                                },
+                                "notes": "Price per unit of product, service, commodity, etc."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "SDQ",
+                "type": "segment",
+                "name": "Destination Quantity",
+                "req": "O",
+                "max_uses": 200,
+                "notes": "To specify destination and quantity detail",
+                "elements": [
+                    {
+                        "id": "SDQ01",
+                        "type": "element",
+                        "name": "Unit or Basis for Measurement Code",
+                        "req": "M",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "UN": "Unit"
+                        },
+                        "length": {
+                            "min": 2,
+                            "max": 2
+                        },
+                        "notes": "Code specifying the units in which a value is being expressed, or manner in which a measurement has been taken"
+                    },
+                    {
+                        "id": "SDQ02",
+                        "type": "element",
+                        "name": "Identification Code Qualifier",
+                        "req": "O",
+                        "data_type": "ID",
+                        "data_type_ids": {
+                            "92": "Assigned by Buyer or Buyer's Agent"
+                        },
+                        "length": {
+                            "min": 1,
+                            "max": 2
+                        },
+                        "notes": "Code specifying the system/method of code structure used for Identification Code (67)"
+                    },
+                    {
+                        "id": "SDQ03",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "M",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ04",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "M",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ05",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ06",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ07",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ08",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ09",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ10",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ11",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ12",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ13",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ14",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ15",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ16",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ17",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ18",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ19",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ20",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ21",
+                        "type": "element",
+                        "name": "Identification Code",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 2,
+                            "max": 80
+                        },
+                        "notes": "Code identifying a party or other code"
+                    },
+                    {
+                        "id": "SDQ22",
+                        "type": "element",
+                        "name": "Quantity",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 15
+                        },
+                        "notes": "Numeric value of quantity"
+                    },
+                    {
+                        "id": "SDQ23",
+                        "type": "element",
+                        "name": "Location Identifier",
+                        "req": "O",
+                        "data_type": "AN",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 30
+                        },
+                        "notes": "Code which identifies a specific location"
+                    }
+                ]
+            }
+
+        ]
+    },
+    {
+        "id": "L_CTT",
+        "type": "loop",
+        "name": "Transaction Totals Loop",
+        "req": "O",
+        "repeat": 200,
+        "segments": [
+            {
+                "id": "CTT",
+                "type": "segment",
+                "name": "Transaction Totals",
+                "req": "M",
+                "max_uses": 1,
+                "notes": "To transmit a hash total for a specific element in the transaction set",
+                "elements": [
+                    {
+                        "id": "CTT01",
+                        "name": "Number of Line Items",
+                        "type": "element",
+                        "req": "M",
+                        "data_type": "N0",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 6
+                        },
+                        "notes": "Total number of line items in the transaction set"
+                    },
+                    {
+                        "id": "CTT02",
+                        "name": "Hash Total",
+                        "type": "element",
+                        "req": "O",
+                        "data_type": "R",
+                        "data_type_ids": null,
+                        "length": {
+                            "min": 1,
+                            "max": 10
+                        },
+                        "notes": "Sum of values of the specified data element. All values in the data element will be summed without regard to decimal points (explicit or implicit) or signs. Truncation will occur on the left most digits if the sum is greater than the maximum size of the hash total of the data element. Example: -.0018 First occurrence of value being hashed. .18 Second occurrence of value being hashed. 1.8 Third occurrence of value being hashed. 18.01 Fourth occurrence of value being hashed. 18E2 Fifth occurrence of value being hashed. -------- 1873 Hash Total"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "SE",
+        "type": "segment",
+        "name": "Transaction Set Trailer",
+        "req": "M",
+        "max_uses": 1,
+        "notes": "To indicate the end of the transaction set and provide the count of the transmitted segments (including the beginning (ST) and ending (SE) segments)",
+        "elements": [
+            {
+                "id": "SE01",
+                "type": "element",
+                "name": "Number of Included Segments",
+                "req": "M",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 10
+                },
+                "notes": "Total number of segments included in a transaction set including ST and SE segments"
+            },
+            {
+                "id": "SE02",
+                "type": "element",
+                "name": "Transaction Set Control Number",
+                "req": "M",
+                "data_type": "AN",
+                "data_type_ids": null,
+                "length": {
+                    "min": 4,
+                    "max": 9
+                },
+                "notes": "Identifying control number that must be unique within the transaction set functional group assigned by the originator for a transaction set"
+            }
+        ]
+    },
+    {
+        "id": "GE",
+        "type": "segment",
+        "name": "Functional Group Trailer",
+        "req": "M",
+        "max_uses": 1,
+        "notes": "To indicate the end of a functional group and to provide control information",
+        "elements": [
+            {
+                "id": "GE01",
+                "type": "element",
+                "name": "Number of Transaction Sets Included",
+                "req": "M",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 6
+                },
+                "notes": "Total number of transaction sets included in the functional group or interchange (transmission) group terminated by the trailer containing this data element"
+            },
+            {
+                "id": "GE02",
+                "type": "element",
+                "name": "Group Control Number",
+                "req": "M",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 9
+                },
+                "notes": "Assigned number originated and maintained by the sender"
+            }
+        ]
+    },
+    {
+        "id": "IEA",
+        "type": "segment",
+        "name": "Interchange Control Trailer",
+        "req": "M",
+        "max_uses": 1,
+        "notes": "To define the end of an interchange of zero or more functional groups and interchange-related control segments",
+        "elements": [
+            {
+                "id": "IEA01",
+                "type": "element",
+                "name": "Number of Included Functional Groups",
+                "req": "M",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {
+                    "min": 1,
+                    "max": 5
+                },
+                "notes": "A count of the number of functional groups included in an interchange"
+            },
+            {
+                "id": "IEA02",
+                "type": "element",
+                "name": "Interchange Control Number",
+                "req": "M",
+                "data_type": "N0",
+                "data_type_ids": null,
+                "length": {
+                    "min": 9,
+                    "max": 9
+                },
+                "notes": "A control number assigned by the interchange sender"
+            }
+        ]
+    }
+]
