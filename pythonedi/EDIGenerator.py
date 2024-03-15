@@ -80,11 +80,11 @@ class EDIGenerator(object):
         output_elements = [segment["id"]]
         for e_data, e_format, index in zip(segment_data, segment["elements"], range(len(segment["elements"]))):
             output_elements.append(self.build_element(e_format, e_data))
-        
+
         # End of segment. If segment has syntax rules, validate them.
         if "syntax" in segment:
             for rule in segment["syntax"]:
-                # Note that the criteria indexes are one-based 
+                # Note that the criteria indexes are one-based
                 # rather than zero-based. However, the output_elements
                 # array is prepopulated with the segment name,
                 # so the net offset works perfectly!
@@ -127,7 +127,7 @@ class EDIGenerator(object):
                             required_elements = ", ".join(["{}{:02d}".format(segment["id"], e) for e in rule["criteria"][0]])
                             Debug.explain(segment)
                             raise ValueError("Syntax error parsing segment {}: If {} is present, at least one of {} are required.".format(segment["id"], first_element, required_elements))
-            
+
         return self.element_delimiter.join(output_elements)
 
     def build_element(self, e_format, e_data):
@@ -139,7 +139,7 @@ class EDIGenerator(object):
             elif e_format["req"] == "O":
                 return ""
             else:
-                raise ValueError("Unknown 'req' value '{}' when processing format for element '{}' in set '{}'".format(e_format["req"], element_id, ts_id))
+                raise ValueError("Unknown 'req' value '{}' when processing format for element '{}' in set '{}'".format(e_format["req"], element_id))
         try:
             if e_format["data_type"] == "AN":
                 formatted_element = str(e_data)
@@ -176,7 +176,7 @@ class EDIGenerator(object):
                 else:
                     raise ValueError("Undefined behavior for empty data type with element '{}'".format(element_id))
         except:
-            raise ValueError("Error converting '{}' to data type '{}'".format(e_data, e_format["data_type"]))
+            raise ValueError("Error converting '{}' to data type '{}' for '{}'".format(e_data, e_format["data_type"], element_id))
 
         # Pad/trim formatted element to fit the field min/max length respectively
         formatted_element += " "*(e_format["length"]["min"]-len(formatted_element))
